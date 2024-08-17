@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /private/
 Disallow: /temp/
 
-Sitemap: https://test.eightlimbentertainment.com/sitemap.xml
+Sitemap: https://eightlimbentertainment.com/sitemap.xml
