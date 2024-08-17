@@ -214,6 +214,7 @@ footer {
   text-align: center;
   margin-bottom: 0;
   font-size: 1.5vh; /* Using vh units for scaling */
+  max-: ;
 }
 
 .vinyl .middle .album-title {
@@ -459,7 +460,7 @@ footer {
   border-radius: 20px;
   padding: 0;
   width: 40px;
-  height: 40px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
