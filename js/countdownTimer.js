@@ -9,18 +9,35 @@ document.addEventListener("DOMContentLoaded", () => {
             const targetDate = new Date(eventElement.getAttribute('data-target-date'));
             const diff = targetDate - now;
 
+            // Check if the target date is valid
+            if (isNaN(targetDate)) {
+                console.error("Invalid target date for event", eventElement);
+                return;
+            }
+
             // Calculate time left
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
+            // Ensure the countdown doesn't go negative
+            if (diff < 0) {
+                eventElement.querySelector(".countdown-timer").textContent = "The event has started!";
+                return;
+            }
+
             // Construct the countdown string
             const countdownString = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
             // Update the DOM with the new time
             const countdownElement = eventElement.querySelector(".countdown-timer");
-            countdownElement.textContent = countdownString;
+            
+            if (countdownElement) {
+                countdownElement.textContent = countdownString;
+            } else {
+                console.error("No .countdown-timer element found within event", eventElement);
+            }
         });
     }
 
@@ -30,3 +47,4 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize the countdown
     updateCountdown();
 });
+
