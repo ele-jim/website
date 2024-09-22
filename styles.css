@@ -229,6 +229,20 @@ footer {
   margin: 0;
 }
 
+.long-track-list {
+  display: grid;
+  grid-template-columns: 60% 40%; /* First column is 60%, second is 40% */
+  grid-auto-flow: row; /* Fill rows first, then columns */
+  gap: 1px; /* Space between columns */
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.long-track-list li {
+  margin-bottom: 2px; /* Spacing between each list item */
+}
+
 .vinyl .middle .purchase-link {
   display: flex;
   width: 100%;
@@ -248,7 +262,7 @@ footer {
 .vinyl .middle .purchase-link .buy-image {
   width: 40px;
   height: auto;
-  margin-top: 5px;
+  margin-top: 2px;
 }
 
 @media screen and (max-width: 768px) {
@@ -277,7 +291,7 @@ footer {
   }
 
   .vinyl .middle .purchase-link .buy-image {
-    margin-top: 5px;
+    margin-top: 2px;
     width: 35px;
   }
 }
