@@ -261,6 +261,12 @@ footer {
   margin: 0;
 }
 
+.vinyl .middle .long-track-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
 .long-track-list-wrapper ul li {
   margin-bottom: 2px; /* Space between list items */
 }
