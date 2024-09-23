@@ -229,6 +229,42 @@ footer {
   margin: 0;
 }
 
+.vinyl .middle .long-track-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.long-track-list {
+  display: grid;
+  grid-template-columns: 50% 50%; /* First column is 60%, second is 40% */
+  grid-auto-flow: row; /* Fill rows first, then columns */
+  gap: 1px; /* Space between columns */
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.long-track-list li {
+  margin-bottom: 2px; /* Spacing between each list item */
+}
+
+.long-track-list-wrapper {
+  display: grid;
+  grid-template-columns: 56% 44%; /* Two columns with the specified ratio */
+  gap: 10px; /* Space between the columns */
+}
+
+.long-track-list-wrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.long-track-list-wrapper ul li {
+  margin-bottom: 2px; /* Space between list items */
+}
+
 .vinyl .middle .purchase-link {
   display: flex;
   width: 100%;
@@ -264,6 +300,10 @@ footer {
   }
 
   .vinyl .middle .track-list li {
+    font-size: 1.2vh; /* Adjusted scaling for smaller screens */
+  }
+
+  .vinyl .middle .long-track-list li {
     font-size: 1.2vh; /* Adjusted scaling for smaller screens */
   }
 

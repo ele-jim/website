@@ -3,34 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eight Limb Entertainment</title>
-  <link rel="icon" type="image/png" sizes="192x192" href="Pictures/favicon/favicon-192x192.webp">
-  <link rel="icon" type="image/png" sizes="32x32" href="Pictures/favicon/favicon-32x32.webp">
-  <link rel="icon" type="image/png" sizes="16x16" href="Pictures/favicon/favicon-16x16.webp">
-  <link rel="apple-touch-icon" sizes="180x180" href="Pictures/favicon/apple-touch-icon.webp">
-  <link rel="manifest" href="Pictures/favicon/site.webmanifest">
-  <link rel="mask-icon" href="Pictures/favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="Pictures/favicon/favicon.ico">
-  <meta name="msapplication-TileColor" content="#2b5797">
-  <meta name="msapplication-TileImage" content="Pictures/favicon/mstile-144x144.webp">
+  
+  <!-- Title Tag for SEO -->
+  <title>Eight Limb Entertainment - Records & Live Music - Northamptonshire</title>
+  
+  <!-- Meta Description for SEO -->
+  <meta name="description" content="Eight Limb Entertainment - promoting the best independent and electronic music - EST 2019 - NN.">
+  
+  <!-- Canonical Tag to Prevent Duplicate Content Issues -->
+  <link rel="canonical" href="https://eightlimbentertainment.com/">
+  
+  <!-- Open Graph Meta Tags for Social Media Sharing -->
+  <meta property="og:title" content="Eight Limb Entertainment">
+  <meta property="og:description" content="Eight Limb Entertainment - promoting the best independent and electronic music - EST 2019 - NN">
+  <meta property="og:image" content="https://eightlimbentertainment.com/Pictures/Icons/ELE_Logo.webp">
+  <meta property="og:url" content="https://eightlimbentertainment.com/">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Favicon Links -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="Pictures/favicon/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="Pictures/favicon/apple-touch-icon.png">
+  
+  <!-- Theme Color -->
   <meta name="theme-color" content="#ffffff">
+  
+  <!-- Schema.org Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Eight Limb Entertainment",
+    "url": "https://eightlimbentertainment.com/",
+    "logo": "https://eightlimbentertainment.com/Pictures/Icons/ELE_Logo.webp",
+    "sameAs": [
+      "https://www.facebook.com/8Limbent/",
+      "https://www.instagram.com/eightlimbentertainment"
+    ],
+    "description": "Eight Limb Entertainment - promoting the best independent and electronic music - EST 2019 - NN."
+  }
+  </script>
+
+  <!-- Fonts and Stylesheets -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Custom CSS to Hide Elements -->
+  <style>
+    .hidden {
+      position: absolute;
+      left: -9999px;
+    }
+  </style>
 </head>
-<body>
 
 <body>
   <header>
-    <img src="Pictures/Icons/ELE_Logo.webp" class="logo" alt="Eight Limb Entertainment Logo" />
+    <img data-src="Pictures/Icons/ELE_Logo.webp" class="logo lazyload" alt="Eight Limb Entertainment Logo" />
     <div class="social-media-icons desktop">
       <a href="https://www.instagram.com/eightlimbentertainment" target="_blank" aria-label="Instagram">
-        <img src="Pictures/Icons/instagram.webp" alt="Instagram" />
+        <img data-src="Pictures/Icons/instagram.webp" class="lazyload" alt="Instagram" />
       </a>
       <a href="https://www.facebook.com/8Limbent/" target="_blank" aria-label="Facebook">
-        <img src="Pictures/Icons/facebook.webp" alt="Facebook" />
+        <img data-src="Pictures/Icons/facebook.webp" class="lazyload" alt="Facebook" />
       </a>
       <a href="mailto:8limbent@gmail.com" aria-label="Email">
-        <img src="Pictures/Icons/email.webp" alt="Email" />
+        <img data-src="Pictures/Icons/email.webp" class="lazyload" alt="Email" />
       </a>
     </div>
   </header>
@@ -42,60 +83,58 @@
       <div class="event-cards">
         <!-- ... Insert new event code below ... -->
          
-        <!-- Template -->
-        <!-- <div class="event" data-target-date="YYYY-MM-DDT:HH:MM:SS">
+        <!-- Template Start - do NOT iclude "<! --" (no space) from the line below and "-- >" (no space) the aline above "End of Template Event" -->
+        <!-- 
+        <div class="event" data-target-date="YYYY-MM-DDT:HH:MM:SS">
           <div class="container">
-              <img src="Pictures/Posters/" alt="Folly Group" class="image" />
-              <!-- Overlay links - Change to match for event --?
-              <div class="middle">
-                  <a href="https://www.facebook.com/events/" class="icon-link">
-                      <img src="Pictures/Icons/facebook.webp" alt="Facebook event for Folly group" />
-                  </a>
-                  <a href="https://www.wegottickets.com/event/" class="icon-link">
-                      <img src="Pictures/Icons/ticket_icon.webp" alt="We Got Tickets" />
-                  </a>
-              </div>
-              <!-- End of Overlay links --?
+            <img src="Pictures/Posters/#########" alt="#########" class="image" />
+            <!-- Overlay links - Change to match for event --?
+            <div class="middle">
+              <a href="https://www.facebook.com/events/#########" class="icon-link">
+                <img src="Pictures/Icons/facebook.webp" alt="Facebook event for #########" />
+              </a>
+              <a href="https://www.wegottickets.com/event/#########" class="icon-link">
+                <img src="Pictures/Icons/ticket_icon.webp" alt="We Got Tickets for #########" />
+              </a>
+            </div>
+            <!-- End of Overlay links --?
           </div>
           <div class="event-caption">
-              (Band) @ <br />
-              (Location)<br /><br />
-              (Date add after event)
+            (Band) @ <br />
+            (Location)<br />
           </div>
-          <!-- Event Count down REMOVE AFTER THE EVENT and update "event-caption" above to include event date... copy format below" --?
+          <!-- Event Count down REMOVE AFTER THE EVENT and update "event-caption" above to include event date..." --?
           <div class="countdown-timer">
-              <span id="days"></span>d <span id="hours"></span>h
-              <span id="minutes"></span>m <span id="seconds"></span>s
+            <span id="days"></span>d <span id="hours"></span>h <span id="minutes"></span>m <span id="seconds"></span>s
           </div>
-        </div> 
+        </div>
         -->
         <!-- End of Template Event -->
 
-            <!-- The Barratts Event -->
-            <div class="event" data-target-date="2024-10-04T19:00:00">
-              <div class="container">
-                <img src="Pictures/Posters/BarrattsPoster-4.10.24.jpg" alt="The Barratts" class="image" />        
-                <!-- Overlay links -->
-                <div class="middle">
-                  <a href="https://www.facebook.com/events/908278491340163" class="icon-link">
-                    <img src="Pictures/Icons/facebook.webp" alt="Facebook event for The Barratts" />
-                  </a>
-                </div>
-                <!-- End of Overlay links -->
-                <div class="event-caption">
-                  The Barratts @ <br />
-                  The Black Prince<br /><br />
-                  <script src="countdownTimer.js"></script>
-                </div>    
-              </div>
-              <!-- Countdown Timer -->
-              <div class="countdown-timer">
-                <span id="days"></span>d  <span id="hours"></span>h
-                <span id="minutes"></span>m <span id="seconds"></span>s
-              </div>
+        <!-- The Barratts Event -->
+        <div class="event" data-target-date="2024-10-04T19:00:00">
+          <div class="container">
+            <img src="Pictures/Posters/BarrattsPoster-4.10.24.jpg" alt="The Barratts" class="image" />
+            <!-- Overlay links -->
+            <div class="middle">
+              <a href="https://www.facebook.com/events/908278491340163" class="icon-link">
+                <img src="Pictures/Icons/facebook.webp" alt="Facebook event for The Barratts" />
+              </a>
+              <a href="https://wegottickets.com/event/630676" class="icon-link">
+                <img src="Pictures/Icons/ticket_icon.webp" alt="We Got Tickets for The Barratts Event" />
+              </a>
             </div>
-            <!-- Link to external JavaScript file -->
-        
+            <!-- End of Overlay links -->
+          </div>
+          <div class="event-caption">
+            The Barratts @<br />
+            The Black Prince<br />
+          </div>
+          <!-- Countdown Timer -->
+          <div class="countdown-timer">
+            <span id="days"></span>d <span id="hours"></span>h <span id="minutes"></span>m <span id="seconds"></span>s
+          </div>
+        </div>
         <!-- End of The Barratts Event -->
 
         <!-- Ben Jennings Event -->
@@ -491,8 +530,9 @@
             <!-- Overlay Links - Add text links here -->
             <div class="middle">
               <div class="album-info">
-                <span class="album-title">Bloody/bath: In An Empty Space I'm Screaming<br />2024 - ELE010 - 12"</span>
-                <ul class="track-list">
+                <span class="album-title">2024 - ELE010 - 12"<br /></span>
+                <div class="long-track-list-wrapper"></div>
+                <ul class="long-track-list">
                   <li>1: Strangling The Dog</li>
                   <li>2: Suffering</li>
                   <li>3: Body</li>
@@ -506,7 +546,7 @@
                 </ul>
                 <a href="" class="purchase-link">
                   <div class="buy-box">
-                    <img src="Pictures/Icons/shopping_icon.webp" alt="Buy" class="buy-image" />
+                    <img src="Pictures/Icons/shopping_icon.webp" alt="Buy Bloody/bath: In An Empty Space I'm Screaming" class="buy-image" />
                   </div>
                 </a>
               </div>
@@ -514,7 +554,7 @@
           </div>
           <!-- End of Overlay Links -->
           <div class="vinyl-caption">
-            OUT NOVEMBER 2024 Bloody/bath <br />In An Empty Space I'm Screaming
+            OUT NOVEMBER 2024<br /> Bloody/bath <br />In An Empty Space I'm Screaming
           </div>
         </div>
         <!-- End of Bloody/bath Vinyl with Hover Effect -->
@@ -526,7 +566,7 @@
             <!-- Overlay Links - Add text links here -->
             <div class="middle">
               <div class="album-info">
-                <span class="album-title">The Barratts: Holding up the Queue<br />2024 - ELE009 - 12"</span>
+                <span class="album-title">2024 - ELE009 - 12"<br /></span>
                 <ul class="track-list">
                   <li>1: Garden Hopping</li>
                   <li>2: Black Spot</li>
@@ -537,7 +577,7 @@
                 </ul>
                 <a href="https://py.pl/1QDYXB" class="purchase-link">
                   <div class="buy-box">
-                    <img src="Pictures/Icons/shopping_icon.webp" alt="Buy" class="buy-image" />
+                    <img src="Pictures/Icons/shopping_icon.webp" alt="Buy The Barratts: Holding up the Queue" class="buy-image" />
                   </div>
                 </a>
               </div>
@@ -557,7 +597,7 @@
             <!-- Overlay Links - Add text links here -->
             <div class="middle">
               <div class="album-info">
-                <span class="album-title">Low Girl: Singles V1<br />2024 - ELE008 - 12"</span>
+                <span class="album-title">2024 - ELE008 - 12"<br /></span>
                 <ul class="track-list">
                   <li>1: Big Now</li>
                   <li>2: So Cool</li>
@@ -568,7 +608,7 @@
                 </ul>
                 <a href="https://www.paypal.com/instantcommerce/checkout/ELBZ5NCDLMFME" class="purchase-link">
                   <div class="buy-box">
-                    <img src="Pictures/Icons/shopping_icon.webp" alt="Buy" class="buy-image" />
+                    <img src="Pictures/Icons/shopping_icon.webp" alt="Buy Low Girl Singles V1" class="buy-image" />
                   </div>
                 </a>
               </div>
@@ -588,7 +628,7 @@
             <!-- Overlay Links - Add text links here -->
             <div class="middle">
               <div class="album-info">
-                <span class="album-title">Rolling Thunder: Know No Different<br />2023 - ELE007 - 12"</span>
+                <span class="album-title">2023 - ELE007 - 12"<br /></span>
                 <ul class="track-list">
                   <li>1: Sunny's Song</li>
                   <li>2: Schmaltz</li>
@@ -599,7 +639,7 @@
                 </ul>
                 <a href="https://www.paypal.com/instantcommerce/checkout/3ZQ4P8EKBPYNC" class="purchase-link">
                   <div class="buy-box">
-                    <img src="Pictures/Icons/shopping_icon.webp" alt="Buy" class="buy-image" />
+                    <img src="Pictures/Icons/shopping_icon.webp" alt="Buy Rolling Thunder KNOW NO DIFFERENT" class="buy-image" />
                   </div>
                 </a>
               </div>
@@ -619,14 +659,14 @@
             <!-- Overlay Links - Add text links here -->
             <div class="middle">
               <div class="album-info">
-                <span class="album-title">BloodyBath: Burning-A Dream<br />2023 - ELE006 - 7"</span>
+                <span class="album-title">2023 - ELE006 - 7"<br /></span>
                 <ul class="track-list">
                   <li>A1: Burning</li>
                   <li>B1: A Dream</li>
                 </ul>
                 <a href="https://www.paypal.com/instantcommerce/checkout/EJNXXRHVGBX44" class="purchase-link">
                   <div class="buy-box">
-                    <img src="Pictures/Icons/shopping_icon.webp" alt="Buy" class="buy-image" />
+                    <img src="Pictures/Icons/shopping_icon.webp" alt="Buy BloodyBath: Burning-A Dream" class="buy-image" />
                   </div>
                 </a>
               </div>
@@ -644,7 +684,7 @@
             <!-- Overlay Links - Add text links here -->
             <div class="middle">
               <div class="album-info">
-                <span class="album-title">Rolling Thunder: Know No Different<br />2022 - ELE005 - 12"</span>
+                <span class="album-title">2022 - ELE005 - 12"<br /></span>
                 <ul class="track-list">
                   <li>1: 1990</li>
                   <li>2: 1992</li>
@@ -656,7 +696,7 @@
                 </ul>
                 <a href="https://www.paypal.com/instantcommerce/checkout/2DTR2FPK379K4" class="purchase-link">
                   <div class="buy-box">
-                    <img src="Pictures/Icons/shopping_icon.webp" alt="Buy" class="buy-image" />
+                    <img src="Pictures/Icons/shopping_icon.webp" alt="Buy Phantom Isle: Out of Blue" class="buy-image" />
                   </div>
                 </a>
               </div>
@@ -674,7 +714,7 @@
             <!-- Overlay Links - Add text links here -->
             <div class="middle">
               <div class="album-info">
-                <span class="album-title">Megalashhh<br />Cheap Thrills<br />2022 - ELE004 - 12"</span>
+                <span class="album-title">2022 - ELE004 - 12"<br /></span>
                 <ul class="track-list">
                   <li>1: Shoot the Moon</li>
                   <li>2: Elavator</li>
@@ -684,7 +724,7 @@
               </div>
               <a href="https://www.paypal.com/instantcommerce/checkout/5SALNLPL5DLPG" class="purchase-link">
                 <div class="buy-box">
-                  <img src="Pictures/Icons/shopping_icon.webp" alt="Buy" class="buy-image" />
+                  <img src="Pictures/Icons/shopping_icon.webp" alt="Buy Megalashhh Cheap Thrills" class="buy-image" />
                 </div>
               </a>
             </div>
@@ -701,7 +741,7 @@
             <!-- Overlay Links - Add text links here -->
             <div class="middle">
               <div class="album-info">
-                <span class="album-title">--- SOLD OUT ---<br />Sarpa Salpa: A feeling you can't replace<br />2022 - ELE003 - 12"</span>
+                <span class="album-title">--- SOLD OUT ---<br />2022 - ELE003 - 12"<br /></span>
                 <ul class="track-list">
                   <li>A1: Stick To What You Know</li>
                   <li>A2: Forwards Backwards</li>
@@ -727,7 +767,7 @@
             <!-- Overlay Links - Add text links here -->
             <div class="middle">
               <div class="album-info">
-                <span class="album-title">Rolling Thunder: The Nightshop:After Hours<br />2020 - ELE002 - 12"</span>
+                <span class="album-title">2020 - ELE002 - 12"<br /></span>
                 <ul class="track-list">
                   <li>1: Ovation</li>
                   <li>2: Get In, Get Done, Get Out</li>
@@ -738,7 +778,7 @@
               </div>
               <a href="https://www.paypal.com/instantcommerce/checkout/2SE5EE9A89QQC" class="purchase-link">
                 <div class="buy-box">
-                  <img src="Pictures/Icons/shopping_icon.webp" alt="Buy" class="buy-image" />
+                  <img src="Pictures/Icons/shopping_icon.webp" alt="Buy Rolling Thunder: The Nightshop:After Hours" class="buy-image" />
                 </div>
               </a>
             </div>
@@ -757,7 +797,7 @@
             <!-- Overlay Links - Add text links here -->
             <div class="middle">
               <div class="album-info">
-                <span class="album-title">Baby Lung: Falling/Casualty<br />2020 - ELE001 - 7"</span>
+                <span class="album-title">2020 - ELE001 - 7"<br /></span>
                 <ul class="track-list">
                   <li>A: Falling</li>
                   <li>B: Casualty</li>
@@ -765,7 +805,7 @@
               </div>
               <a href="https://www.paypal.com/instantcommerce/checkout/ARSNJKPYSQFEE" class="purchase-link">
                 <div class="buy-box">
-                  <img src="Pictures/Icons/shopping_icon.webp" alt="Buy" class="buy-image" />
+                  <img src="Pictures/Icons/shopping_icon.webp" alt="Buy Baby Lung: Falling/Casualty" class="buy-image" />
                 </div>
               </a>
             </div>
@@ -864,5 +904,7 @@
   <script src="js/hoverEffect.js"></script>
   <script src="js/countdownTimer.js"></script>
   <script src="js/emailValidation.js"></script>
+  <script src="js/longtracklist.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.0/lazysizes.min.js" async></script>
 </body>
 </html>
