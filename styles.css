@@ -170,7 +170,7 @@ header {
   gap: 10px;
   position: relative;
   z-index: 1;
-  padding-right: 25x;
+  padding-right: 25px;
 }
 
 .event-cards::-webkit-scrollbar,
