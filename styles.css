@@ -46,6 +46,73 @@ header {
   font-weight: 300;
   color: white;
   text-align: left;
+  padding: 10px 20px; /* Consolidated padding values */
+  margin: 0; /* Ensure there's no default margin causing layout shifts */
+  background: transparent;
+  z-index: 1; /* Keep it behind the arrows */
+  position: relative; /* Ensure it doesn’t interfere with other positioned elements */
+}
+
+.arrow {
+  position: absolute;
+  top: 60%; /* This centers it vertically in the container, but we will adjust */
+  transform: translateY(-50%); /* Centers the arrow relative to its top position */
+  cursor: pointer;
+  z-index: 10;
+  padding: 5px;
+}
+
+.left-arrow {
+  left: 10px; /* Position the left arrow */
+}
+
+.right-arrow {
+  right: 10px; /* Position the right arrow */
+}
+
+.event-cards, .vinyl-cards {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  display: flex;
+  gap: 20px;
+}
+
+.arrow img {
+  width: 40px; /* Adjust the width of the arrow */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+}
+
+#vinyls .scroll-container {
+  position: relative; /* Make sure arrows are positioned relative to vinyl section */
+}
+
+#vinyls .arrow {
+  top: 40%; /* Center within the vinyl-cards section */
+  transform: translateY(-50%); /* Ensure centering */
+}
+
+#vinyls .left-arrow {
+  left: 10px; /* Adjust position from the left for vinyl cards */
+}
+
+#vinyls .right-arrow {
+  right: 10px; /* Adjust position from the right for vinyl cards */
+}
+
+#vinyls .arrow img {
+  width: 40px; /* Adjust the size of the arrow image */
+  height: auto;
+  display: block;
+}
+
+.events-title {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: white;
+  text-align: left;
   padding: 0px 0px 10px 20px;
   padding-top: 10px;
   background: transparent;
@@ -97,6 +164,7 @@ header {
   gap: 10px;
   position: relative;
   z-index: 1;
+  padding-right: 25px;
 }
 
 .event-cards::-webkit-scrollbar,
