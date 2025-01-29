@@ -1,3 +1,10 @@
+/* GLOBAL RESETS & FONTS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body,
 html {
   width: 100%;
@@ -8,6 +15,7 @@ html {
   height: 100%;
 }
 
+/* HEADER */
 header {
   display: flex;
   justify-content: center;
@@ -20,6 +28,48 @@ header {
   position: relative;
 }
 
+.logo {
+  height: 10vh;
+  max-height: 150px;
+  padding-top: 8px;
+}
+
+/* ARROWS (for scrolling sections) */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  padding: 5px;
+}
+
+.arrow img {
+  width: 25px;
+  height: auto;
+  display: block;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+#vinyls .arrow {
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+@media screen and (max-width: 768px) {
+  .arrow {
+    display: none !important;
+  }
+}
+
+/* EVENTS SECTION */
 #events {
   position: relative;
   background: black;
@@ -28,49 +78,27 @@ header {
   width: 100%;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-.logo {
-  height: 10vh;
-  max-height: 150px;
-  padding-top: 8px;
-}
-
 .events-title {
   font-family: "Inter", sans-serif;
   font-size: 1.2rem;
   font-weight: 300;
   color: white;
   text-align: left;
-  padding: 10px 20px; /* Consolidated padding values */
-  margin: 0; /* Ensure there's no default margin causing layout shifts */
+  padding-top: 10px;
+  margin: 0;
   background: transparent;
-  z-index: 1; /* Keep it behind the arrows */
-  position: relative; /* Ensure it doesn’t interfere with other positioned elements */
+  z-index: 1;
+  position: relative;
 }
 
-.arrow {
-  position: absolute;
-  top: 60%; /* This centers it vertically in the container, but we will adjust */
-  transform: translateY(-50%); /* Centers the arrow relative to its top position */
-  cursor: pointer;
-  z-index: 10;
-  padding: 5px;
+.event-cards {
+  padding-top: 10px;
+  padding-left: 6px;
 }
 
-.left-arrow {
-  left: 10px; /* Position the left arrow */
-}
-
-.right-arrow {
-  right: 10px; /* Position the right arrow */
-}
-
-.event-cards, .vinyl-cards {
+/* VINYL & EVENT CARD STYLES */
+.event-cards,
+.vinyl-cards {
   overflow-x: auto;
   scroll-behavior: smooth;
   white-space: nowrap;
@@ -78,62 +106,8 @@ header {
   gap: 20px;
 }
 
-.arrow img {
-  width: 40px; /* Adjust the width of the arrow */
-  height: auto; /* Maintain aspect ratio */
-  display: block;
-}
-
 #vinyls .scroll-container {
-  position: relative; /* Make sure arrows are positioned relative to vinyl section */
-}
-
-#vinyls .arrow {
-  top: 40%; /* Center within the vinyl-cards section */
-  transform: translateY(-50%); /* Ensure centering */
-}
-
-#vinyls .left-arrow {
-  left: 10px; /* Adjust position from the left for vinyl cards */
-}
-
-#vinyls .right-arrow {
-  right: 10px; /* Adjust position from the right for vinyl cards */
-}
-
-#vinyls .arrow img {
-  width: 40px; /* Adjust the size of the arrow image */
-  height: auto;
-  display: block;
-}
-
-@media screen and (max-width: 768px) {
-  .arrow {
-    display: none !important; /* Force hide the arrows on screens smaller than 768px */
-  }
-
-  .arrow img {
-    display: none !important; /* Force hide the arrow images on screens smaller than 768px */
-  }
-
-  #vinyls .arrow {
-    display: none !important; /* Force hide the arrows on screens smaller than 768px */
-  }
-
-  #vinyls .arrow {
-    display: none !important; /* Force hide the arrow images on screens smaller than 768px */
-  }
-}
-
-.events-title {
-  font-family: "Inter", sans-serif;
-  font-size: 1.2rem;
-  font-weight: 300;
-  color: white;
-  text-align: left;
-  padding: 0px 0px 10px 20px;
-  padding-top: 10px;
-  background: transparent;
+  position: relative;
 }
 
 .vinyl-title {
@@ -142,36 +116,9 @@ header {
   font-weight: 300;
   color: #000;
   text-align: left;
-  padding: 0px 0px 10px 20px;
   background: transparent;
-}
-
-.svg-top,
-.svg-bottom {
-  display: block;
-  width: 100vw;
-  height: auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-left: 0;
-  margin-right: 0;
-  overflow: hidden;
-}
-
-.svg-top {
-  top: 0;
-}
-
-.svg-bottom {
-  bottom: 0;
-}
-
-.svg-top img,
-.svg-bottom img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  padding-left: 20px;
+  margin: 0px;
 }
 
 .event-cards,
@@ -188,6 +135,10 @@ header {
 .event-cards::-webkit-scrollbar,
 .vinyl-cards::-webkit-scrollbar {
   display: none;
+}
+
+.vinyl-cards {
+  padding-top: 10px;
 }
 
 .event,
@@ -237,186 +188,13 @@ header {
   margin: 0 auto;
 }
 
-.social-media-icons.desktop a {
-  text-decoration: none;
-}
-
-.social-media-icons.desktop {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.social-media-icons.mobile {
-  display: none;
-}
-
-@media screen and (max-width: 768px) {
-  .social-media-icons.desktop {
-    display: none;
-  }
-
-  .social-media-icons.mobile {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    gap: 3px;
-    padding: 5px 0;
-  }
-}
-
-.social-media-icons img {
-  height: 4.2vh;
-  max-height: 40px;
-  width: auto;
-}
-
-.countdown-timer {
-  color: red;
-  text-align: center;
-  padding: 10px 0;
-  display: block;
-  font-size: auto;
-}
-
-footer {
-  background: #ffffff;
-  padding: 20px;
-  text-align: center;
-  position: relative;
-}
-
-.vinyl .middle {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  padding-top: 5px; /* Add padding to the top */
-}
-
-.vinyl .middle .album-info {
-  text-align: center;
-  margin-bottom: 0;
-  font-size: 1.5vh; /* Using vh units for scaling */
-}
-
-.vinyl .middle .album-title {
-  font-weight: bold;
-  margin-bottom: 0;
-  padding-right: 10px;
-  font-size: 1.5vh; /* Using vh units for scaling */
-}
-
-.vinyl .middle .track-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.vinyl .middle .long-track-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.long-track-list {
-  display: grid;
-  grid-template-columns: 50% 50%; /* First column is 60%, second is 40% */
-  grid-auto-flow: row; /* Fill rows first, then columns */
-  gap: 1px; /* Space between columns */
-  list-style-type: none; /* Remove bullet points */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
-}
-
-.long-track-list li {
-  margin-bottom: 2px; /* Spacing between each list item */
-}
-
-.long-track-list-wrapper {
-  display: grid;
-  grid-template-columns: 56% 44%; /* Two columns with the specified ratio */
-  gap: 10px; /* Space between the columns */
-}
-
-.long-track-list-wrapper ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.vinyl .middle .long-track-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.long-track-list-wrapper ul li {
-  margin-bottom: 2px; /* Space between list items */
-}
-
-.vinyl .middle .purchase-link {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: -5px;
-}
-
-.vinyl .middle .purchase-link .buy-box {
-  background-color: transparent;
-  padding: 1px;
-  border-radius: 1px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.vinyl .middle .purchase-link .buy-image {
-  width: 40px;
-  height: auto;
-  margin-top: 5px;
-}
-
-@media screen and (max-width: 768px) {
-  .vinyl .middle .album-info {
-    font-size: 1.5vh; /* Adjusted scaling for smaller screens */
-    margin-top: -5px;
-    text-align: center;
-  }
-
-  .vinyl .middle .album-title {
-    font-size: 1.5vh; /* Adjusted scaling for smaller screens */
-    margin-top: -5px;
-  }
-
-  .vinyl .middle .track-list li {
-    font-size: 1.2vh; /* Adjusted scaling for smaller screens */
-  }
-
-  .vinyl .middle .long-track-list li {
-    font-size: 1.2vh; /* Adjusted scaling for smaller screens */
-  }
-
-  .vinyl .middle .icon-link img {
-    max-width: 15%;
-    max-height: 15%;
-  }
-
-  .vinyl .middle .purchase-link {
-    margin-top: -5px;
-  }
-
-  .vinyl .middle .purchase-link .buy-image {
-    margin-top: 5px;
-    width: 35px;
-  }
-}
-
+/* CONTAINER & HOVER EFFECTS */
 .container {
   position: relative;
   width: 100%;
+  height: auto;
+  max-height: 300px;
+  overflow: visible;
 }
 
 .image {
@@ -428,57 +206,15 @@ footer {
   backface-visibility: hidden;
 }
 
-.middle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: 0.5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-  padding: 10px;
-  max-width: 100%;
-  max-height: 100%;
-  gap: 10px;
+.container:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }
 
-.vinyl .container:hover .image {
-  opacity: 0.05;
-}
-
-.event .container:hover .image {
-  opacity: 0.3;
-}
-
-.container:hover .middle {
-  opacity: 1;
-}
-
-.event .container.tapped .middle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  opacity: 1;
-  transition: 0.5s ease;
-}
-
+/* OPTIONAL: Overlay links used in the event template */
 .icon-link {
   display: block;
   margin: 5px 0;
-}
-
-.middle .icon-link img {
-  width: auto;
-  height: 7vh;
-  max-height: 100%;
-  max-height: 125px;
 }
 
 @media screen and (max-width: 768px) {
@@ -486,72 +222,25 @@ footer {
     height: 20vh;
     max-width: 100%;
   }
-
-  .middle {
-    gap: 8px;
-    flex-direction: column;
-  }
 }
 
-.disabled-link {
-  pointer-events: none;
-}
-
-.tapped .image {
-  opacity: 0.3;
-}
-
-.tapped .middle {
-  opacity: 1;
-}
-
-#mc_embed_signup {
-  text-align: center;
-  padding: 1px;
-  padding-bottom: 10px;
-}
-
-#mc_embed_signup_scroll {
-  display: inline-block;
-}
-
-.mc-field-group {
-  margin-bottom: 10px;
-}
-
-#mc-embedded-subscribe-form .email {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  width: 250px;
-}
-
-#mc-embedded-subscribe-form .button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  background-color: #333;
-  color: #fff;
-  cursor: pointer;
-}
-
-#mc-embedded-subscribe-form .button:hover {
-  background-color: #555;
-}
-
-#mce-error-response,
-#mce-success-response {
+/* COUNTDOWN TIMER (used in the event template) */
+.countdown-timer {
   color: red;
+  text-align: center;
   padding: 10px 0;
-  width: 250px;
-  margin: 0 auto;
+  display: block;
+  font-size: auto;
 }
 
+/* MAILING LIST & FOOTER */
 footer {
   background: #fff;
   padding: 20px;
   text-align: center;
   position: relative;
+  padding-top: 0px;
+  padding-bottom: 10px;
 }
 
 .footer-content {
@@ -566,49 +255,18 @@ footer {
 }
 
 .footer-content p {
-  font-size: 1rem;
-  margin-bottom: 15px;
+  font-size: 0.875rem;
+  margin-top: 1px;
+  margin-bottom: 5px;
   font-weight: 200;
-}
-
-#mc_embed_signup .mc-field-group {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-#mc_embed_signup .email {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  width: 250px;
-}
-
-#mc_embed_signup .button {
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 0;
-  width: 40px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-#mc_embed_signup .button img {
-  max-width: 100%;
-  max-height: 100%;
+  color: #555;
 }
 
 .footer-content .social-media-icons {
   margin-top: 0px;
 }
 
+/* Hide desktop icons on mobile, show mobile icons on mobile */
 .footer-content .social-media-icons.mobile {
   display: none;
 }
@@ -618,10 +276,102 @@ footer {
   height: 40px;
 }
 
-.footer-content p {
-  margin-top: 1px;
-  font-size: 0.875rem;
-  color: #555;
+.invisible-button {
+  visibility: hidden;
+  width: 40px;
+}
+
+/* =============== MAILCHIMP SIGNUP =============== */
+#mc_embed_signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#mc_embed_signup_scroll {
+  display: inline-block;
+}
+
+.mc-field-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#mc-embedded-subscribe-form .email {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 250px;
+}
+
+/* Main "subscribe" button (desktop) */
+#mc-embedded-subscribe-form .button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  height: 25px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+#mc-embedded-subscribe-form .button img {
+  display: block;
+  max-width: 100%;
+  max-height: 10px; /* The small icon look for desktop */
+  height: auto;
+}
+
+/* Additional container config */
+#mce-error-response,
+#mce-success-response {
+  color: red;
+  padding: 10px 0;
+  width: 250px;
+  margin: 0 auto;
+}
+
+/* This is the group inside #mc_embed_signup */
+#mc_embed_signup .mc-field-group {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  position: relative;
+  width: auto;
+}
+
+#mc_embed_signup .email {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 250px;
+  flex-shrink: 0;
+}
+
+/* The narrower, pill button under #mc_embed_signup */
+#mc_embed_signup .button {
+  padding: 10px;
+  width: 40px;            /* narrower “pill” on desktop */
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  /* Remove fixed height so icon can scale comfortably */
+  height: auto;
+}
+
+#mc_embed_signup .button img {
+  max-width: 100%;
+  height: auto;
+  max-height: 10px;
 }
 
 #mc_embed_signup .response {
@@ -637,49 +387,12 @@ footer {
   color: green;
 }
 
-@media screen and (max-width: 768px) {
-  .social-media-icons.desktop {
-    display: none;
-  }
-
-  .social-media-icons.mobile {
-    display: flex !important;
-    justify-content: center;
-    gap: 3px;
-    padding: 5px 0;
-  }
+/* Hover effect */
+#mc-embedded-subscribe-form .button:hover {
+  background-color: #555;
 }
 
-.valid-email {
-  background-color: lightgreen;
-}
-
-.invalid-email {
-  background-color: palevioletred;
-}
-
-footer {
-  padding-top: 30px;
-  padding-bottom: 10px;
-}
-
-#mc-embedded-subscribe-form .button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  background-color: #333;
-  color: #fff;
-  cursor: pointer;
-  width: auto;
-}
-
-#mc-embedded-subscribe-form .button img {
-  display: block;
-  max-width: 100%;
-  max-height: 10px;
-  height: auto;
-}
-
+/* MOBILE OVERRIDES */
 @media screen and (max-width: 768px) {
   #mc-embedded-subscribe-form .mc-field-group {
     display: flex;
@@ -692,18 +405,48 @@ footer {
     flex: 1;
     max-width: calc(100% - 58px);
   }
+}
 
-  #mc-embedded-subscribe-form .button {
-    background-color: #333;
-    border: none;
-    padding: 10px 20px;
-    box-sizing: border-box;
-    max-width: 48px;
+/* Email input coloring on valid/invalid */
+.valid-email {
+  background-color: lightgreen;
+}
+
+.invalid-email {
+  background-color: palevioletred;
+}
+
+/* SOCIAL MEDIA ICONS */
+.social-media-icons.desktop a {
+  text-decoration: none;
+}
+
+.social-media-icons.desktop {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.social-media-icons.mobile {
+  display: none;
+}
+
+.social-media-icons img {
+  height: 4.2vh;
+  max-height: 40px;
+  width: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .social-media-icons.desktop {
+    display: none;
   }
 
-  #mc-embedded-subscribe-form .button img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  .social-media-icons.mobile {
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+    gap: 3px;
+    padding: 5px 0;
   }
 }
