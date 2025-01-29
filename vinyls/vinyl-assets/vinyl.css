@@ -50,12 +50,14 @@ header {
   align-items: center;
   width: 100%;
   background-color: white;
-  padding-bottom: 30px;
 }
 
 .image-vinyl img {
   width: 400px;
   max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 30px;
   height: auto;
   object-fit: contain; /* Ensures the image fits well */
   filter: drop-shadow(0 15px 10px rgba(0, 0, 0, 0.5)); /* Shadow around transparent areas */
