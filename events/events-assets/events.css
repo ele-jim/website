@@ -175,6 +175,11 @@ header {
   font-weight: bold;
 }
 
+.countdown-timer {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 .ele-presents-label {
   font-size: 1rem;
   padding-top: 15px;
@@ -204,7 +209,7 @@ header {
 
 .facebook-event {
   align-self: flex-start;
-  margin-top: 20px;
+  padding-top: 10px;
   display: inline-flex;
   justify-content: left;
   width: auto;
@@ -576,7 +581,7 @@ footer {
     gap: 25px; /* Adjust spacing between icons */
     width: 100%; /* Ensures the container spans the full width */
     margin: 0 auto; /* Centers the container */
-    padding: 15px 0; /* Adds some padding for spacing */
+    padding: 5px 0; /* Adds some padding for spacing */
   }
 
   .facebook-event img {
