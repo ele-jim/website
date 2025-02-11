@@ -1,0 +1,55 @@
+name: Update XML on HTML Changes
+
+on:
+  push:
+    paths:
+      - 'events/*.html'
+      - 'vinyls/*.html'
+
+jobs:
+  update-xml:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install xmlstarlet
+        run: sudo apt-get install -y xmlstarlet
+
+      - name: Detect new or modified HTML files
+        id: detect_html
+        run: |
+          git diff --name-only --diff-filter=A HEAD^ HEAD | grep -E '^events/.*\.html$|^vinyls/.*\.html$' > new_files.txt
+          if [ -s new_files.txt ]; then
+            echo "new_files=true" >> $GITHUB_ENV
+          else
+            echo "new_files=false" >> $GITHUB_ENV
+          fi
+
+      - name: Update XML file
+        if: env.new_files == 'true'
+        run: |
+          while IFS= read -r file; do
+            # Extract necessary information from the HTML file
+            # For example, extract the title
+            title=$(grep -oP '(?<=<title>)(.*)(?=</title>)' "$file")
+            # Use xmlstarlet to add a new entry to your XML file
+            xmlstarlet ed --inplace \
+              -s "/root" -t elem -n "event" -v "" \
+              -s "/root/event[last()]" -t elem -n "title" -v "$title" \
+              path/to/yourfile.xml
+          done < new_files.txt
+
+      - name: Commit and push changes
+        if: env.new_files == 'true'
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add path/to/yourfile.xml
+          git commit -m 'Update XML with new event/vinyl entries'
+          git push
