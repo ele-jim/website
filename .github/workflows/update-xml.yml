@@ -21,8 +21,9 @@ jobs:
       - name: Detect new or modified HTML files
         id: detect_html
         run: |
-          # Check for both added (A) and modified (M) files
-          git diff --name-only --diff-filter=AM HEAD^ HEAD | grep -E '^events/.*\.html$|^vinyls/.*\.html$' > new_files.txt
+          # Check for both added (A) and modified (M) files.
+          # Append "|| true" so the command doesn't fail if grep finds no matches.
+          git diff --name-only --diff-filter=AM HEAD^ HEAD | grep -E '^events/.*\.html$|^vinyls/.*\.html$' > new_files.txt || true
           if [ -s new_files.txt ]; then
             echo "new_files=true" >> $GITHUB_ENV
           else
@@ -32,7 +33,7 @@ jobs:
       - name: Update XML file
         if: env.new_files == 'true'
         run: |
-          # Replace 'path/to/yourfile.xml' with the actual path to your XML file.
+          # Replace with the actual path to your XML file.
           XML_FILE="path/to/yourfile.xml"
           
           while IFS= read -r file; do
