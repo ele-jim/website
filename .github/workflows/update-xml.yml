@@ -22,7 +22,7 @@ jobs:
         id: detect_html
         run: |
           # Check for both added (A) and modified (M) files.
-          # Append "|| true" so the command doesn't fail if grep finds no matches.
+          # Append "|| true" to avoid non-zero exit code when grep finds no matches.
           git diff --name-only --diff-filter=AM HEAD^ HEAD | grep -E '^events/.*\.html$|^vinyls/.*\.html$' > new_files.txt || true
           if [ -s new_files.txt ]; then
             echo "new_files=true" >> $GITHUB_ENV
@@ -30,28 +30,30 @@ jobs:
             echo "new_files=false" >> $GITHUB_ENV
           fi
 
-      - name: Update XML file
+      - name: Update sitemap.xml
         if: env.new_files == 'true'
         run: |
-          # Replace with the actual path to your XML file.
-          XML_FILE="path/to/yourfile.xml"
+          # Define the sitemap file and base URL.
+          XML_FILE="sitemap.xml"
+          BASE_URL="https://eightlimbentertainment.com"
           
           while IFS= read -r file; do
-            # Extract the title from the HTML file.
-            title=$(grep -oP '(?<=<title>)(.*)(?=</title>)' "$file")
-            echo "Processing file: $file with title: $title"
+            # Remove the .html extension and construct the full URL.
+            url="${file%.html}"
+            url="$BASE_URL/$url"
+            echo "Processing file: $file with URL: $url"
             
-            # Check if an event with the same title already exists.
-            exists=$(xmlstarlet sel -t -v "count(/root/event[title='$title'])" "$XML_FILE")
+            # Check if this URL already exists in sitemap.xml.
+            exists=$(xmlstarlet sel -t -v "count(/urlset/url[loc='$url'])" "$XML_FILE")
             if [ "$exists" -eq 0 ]; then
-              echo "No duplicate found. Adding new event for '$title'."
-              # Append a new event entry with the title.
+              echo "No duplicate found. Adding new URL for '$url'."
+              # Append a new <url> element with the <loc> set to the URL.
               xmlstarlet ed --inplace \
-                -s "/root" -t elem -n "event" -v "" \
-                -s "/root/event[last()]" -t elem -n "title" -v "$title" \
+                -s "/urlset" -t elem -n "url" -v "" \
+                -s "/urlset/url[last()]" -t elem -n "loc" -v "$url" \
                 "$XML_FILE"
             else
-              echo "Event with title '$title' already exists, skipping..."
+              echo "URL '$url' already exists in sitemap, skipping..."
             fi
           done < new_files.txt
 
@@ -60,6 +62,6 @@ jobs:
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-          git add "$XML_FILE"
-          git commit -m 'Update XML with new event/vinyl entries'
+          git add sitemap.xml
+          git commit -m 'Update sitemap.xml with new event/vinyl entries'
           git push
