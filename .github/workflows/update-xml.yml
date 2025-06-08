@@ -1,0 +1,63 @@
+name: Update Sitemap on HTML Changes
+
+on:
+  push:
+    paths:
+      - 'events/*.html'
+      - 'vinyls/*.html'
+
+jobs:
+  update-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - name: Install xmlstarlet
+        run: sudo apt-get install -y xmlstarlet
+
+      - name: Update sitemap.xml with all HTML file entries
+        run: |
+          # Define the sitemap file and base URL.
+          XML_FILE="sitemap.xml"
+          BASE_URL="https://eightlimbentertainment.com"
+          
+          # Generate a list of all .html files in the events and vinyls directories.
+          # (This assumes your HTML files reside only in these two directories.)
+          find events vinyls -type f -name '*.html' > all_files.txt || true
+          
+          if [ ! -s all_files.txt ]; then
+            echo "No HTML files found in events or vinyls."
+            exit 0
+          fi
+          
+          # Loop through each HTML file.
+          while IFS= read -r file; do
+            # Remove the .html extension and construct the URL.
+            url="${file%.html}"
+            url="$BASE_URL/$url"
+            echo "Checking URL: $url"
+            
+            # Check if this URL already exists in sitemap.xml.
+            exists=$(xmlstarlet sel -t -v "count(/urlset/url[loc='$url'])" "$XML_FILE")
+            if [ "$exists" -eq 0 ]; then
+              echo "URL '$url' not found in sitemap. Adding it."
+              # Append a new <url> element with a <loc> child containing the URL.
+              xmlstarlet ed --inplace \
+                -s "/urlset" -t elem -n "url" -v "" \
+                -s "/urlset/url[last()]" -t elem -n "loc" -v "$url" \
+                "$XML_FILE"
+            else
+              echo "URL '$url' already exists in sitemap."
+            fi
+          done < all_files.txt
+
+      - name: Commit and push sitemap.xml changes
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add sitemap.xml
+          git commit -m 'Update sitemap.xml with all HTML file entries' || echo "No changes to commit"
+          git push
