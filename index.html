@@ -37,8 +37,9 @@
   <link rel="icon" type="image/png" sizes="192x192" href="index/pictures/favicon/favicon-192x192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="index/pictures/favicon/apple-touch-icon.png">
   
-  <!-- Theme Color -->
-  <meta name="theme-color" content="#ffffff">
+  <!-- Theme Color (responds to light/dark) -->
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0e0e" media="(prefers-color-scheme: dark)">
   
   <!-- Schema.org Structured Data for SEO -->
   <script type="application/ld+json">
@@ -57,51 +58,49 @@
   </script>
 
   <!-- Fonts and Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="index/pictures/icons/ELE_Logo.webp">
+  <link rel="stylesheet" href="index/shared.css" />
   <link rel="stylesheet" href="index/styles.css" />
-
-  <!-- Custom CSS to Hide Elements -->
-  <style>
-    .hidden {
-      position: absolute;
-      left: -9999px;
-    }
-  </style>
 </head>
 
 <body>
   <header>
-    <img data-src="index/pictures/icons/ELE_Logo.webp" class="logo lazyload" alt="Eight Limb Entertainment Logo" />
+    <a href="/" aria-label="Eight Limb Entertainment home">
+      <img src="index/pictures/icons/ELE_Logo.webp" class="logo" alt="Eight Limb Entertainment Logo" width="150" height="150" decoding="async" />
+    </a>
     <div class="social-media-icons desktop">
-      <a href="https://www.instagram.com/eightlimbentertainment" target="_blank" aria-label="Instagram">
-        <img data-src="index/pictures/icons/instagram.webp" class="lazyload" alt="Instagram" />
+      <a href="https://www.instagram.com/eightlimbentertainment" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="index/pictures/icons/instagram.webp" alt="Instagram" width="40" height="40" loading="lazy" decoding="async" />
       </a>
-      <a href="https://www.facebook.com/8Limbent/" target="_blank" aria-label="Facebook">
-        <img data-src="index/pictures/icons/facebook.webp" class="lazyload" alt="Facebook" />
+      <a href="https://www.facebook.com/8Limbent/" target="_blank" rel="noopener" aria-label="Facebook">
+        <img src="index/pictures/icons/facebook.webp" alt="Facebook" width="40" height="40" loading="lazy" decoding="async" />
       </a>
       <a href="mailto:8limbent@gmail.com" aria-label="Email">
-        <img data-src="index/pictures/icons/email.webp" class="lazyload" alt="Email" />
+        <img src="index/pictures/icons/email.webp" alt="Email" width="40" height="40" loading="lazy" decoding="async" />
       </a>
     </div>
   </header>
 
-  <img src="index/pictures/svg/layered-waves-top.svg" alt="Top Decorative Wave" style="width: 100%; height: auto; max-height: 70px; vertical-align: bottom;" />
+  <img src="index/pictures/svg/layered-waves-top.svg" alt="" role="presentation" width="1920" height="70" style="width:100%; height:auto; max-height:70px; vertical-align:bottom; display:block;" />
 
   <main>
     <section id="events">
       <h2 class="events-title">Events</h2>
       <div class="scroll-container">
-        <div class="arrow left-arrow">
-          <img src="index/pictures/icons/ChevronWhite.png" alt="Scroll Left" />
+        <div class="arrow left-arrow" aria-hidden="true">
+          <img src="index/pictures/icons/ChevronWhite.png" alt="" width="25" height="25" />
         </div>
-      <div class="event-cards">
+        <div class="event-cards">
         <!-- ... Insert new event code below ... -->
 
          <!-- Thomas Truax Event -->
          <div class="event" data-target-date="2025-04-12T19:30:00">
           <div class="container">
-            <a href="events/12April25-ThomasTruax.html" alt="Thomas Truax Event" class="image" /> 
-              <img src="index/pictures/posters/ThomasTruax12.4.25.webp" alt="Thomas Truax" class="image" />
+            <a href="events/12April25-ThomasTruax.html" class="image"> 
+              <img src="index/pictures/posters/ThomasTruax12.4.25.webp" alt="Thomas Truax" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -115,8 +114,8 @@
         <!-- The Barratts Event -->
         <div class="event" data-target-date="2024-10-04T19:00:00">
           <div class="container">
-            <a href="events/4October24-TheBarratts.html" alt="The Barratts Event" class="image" /> 
-              <img src="index/pictures/posters/BarrattsPoster-4.10.24.webp" alt="The Barratts " class="image" />
+            <a href="events/4October24-TheBarratts.html" class="image"> 
+              <img src="index/pictures/posters/BarrattsPoster-4.10.24.webp" alt="The Barratts " class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -130,8 +129,8 @@
         <!-- Ben Jennings Event -->
         <div class="event" data-target-date="2024-04-26T19:30:00">
           <div class="container">
-            <a href="events/26April24-BenJennings&TheNewMoons.html" alt="Ben Jennings" class="image" /> 
-              <img src="index/pictures/posters/BenJennings-26.4.24.webp" alt="Facebook event for Ben Jennings & The New Moons" class="image" />
+            <a href="events/26April24-BenJennings&TheNewMoons.html" class="image"> 
+              <img src="index/pictures/posters/BenJennings-26.4.24.webp" alt="Facebook event for Ben Jennings & The New Moons" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -145,8 +144,8 @@
         <!-- Thomas Truax -->
         <div class="event" data-target-date="2024-03-09T19:30:00">
           <div class="container">
-            <a href="events/9March24-ThomasTruax.html" alt="Thomas Truax Poster 9.3.24" class="image" /> 
-              <img src="index/pictures/posters/ThomasTruax9.3.24.webp" alt="The Barratts" class="image" />
+            <a href="events/9March24-ThomasTruax.html" class="image"> 
+              <img src="index/pictures/posters/ThomasTruax9.3.24.webp" alt="The Barratts" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -160,8 +159,8 @@
         <!-- Folly Group -->
         <div class="event" data-target-date="2024-03-09T19:30:00">
           <div class="container">
-            <a href="events/7March24-FollyGroup.html" alt="Thomas Truax Poster 9.3.24" class="image" /> 
-              <img src="index/pictures/posters/FollyGroup-16-.webp" alt="The Barratts" class="image" />
+            <a href="events/7March24-FollyGroup.html" class="image"> 
+              <img src="index/pictures/posters/FollyGroup-16-.webp" alt="The Barratts" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -175,8 +174,8 @@
         <!-- Low Girl Event -->
         <div class="event" data-target-date="2024-03-09T19:30:00">
           <div class="container">
-            <a href="events/27January24-LowGirl.html" alt="Low Girl Poster" class="image" /> 
-              <img src="index/pictures/posters/LowGirlSinglesGig.webp" alt="Low Girl" class="image" />
+            <a href="events/27January24-LowGirl.html" class="image"> 
+              <img src="index/pictures/posters/LowGirlSinglesGig.webp" alt="Low Girl" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -190,8 +189,8 @@
         <!-- Folly Group Event -->
         <div class="event" data-target-date="2024-03-09T19:30:00">
           <div class="container">
-            <a href="events/7thApril23-FollyGroup.html" alt="Folly Group Event" class="image" /> 
-              <img src="index/pictures/posters/FollyGroup-15-.webp" alt="Folly Group" class="image" />
+            <a href="events/7thApril23-FollyGroup.html" class="image"> 
+              <img src="index/pictures/posters/FollyGroup-15-.webp" alt="Folly Group" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -205,8 +204,8 @@
         <!-- Ben Jennings Event -->
         <div class="event" data-target-date="2024-03-09T19:30:00">
           <div class="container">
-            <a href="events/31March23-BenJenningsEnsemble.html" alt="Ben Jennings Ensemble Event" class="image" /> 
-              <img src="index/pictures/posters/BenJennings-14-.webp" alt="Ben Jennings Ensemble" class="image" />
+            <a href="events/31March23-BenJenningsEnsemble.html" class="image"> 
+              <img src="index/pictures/posters/BenJennings-14-.webp" alt="Ben Jennings Ensemble" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -220,8 +219,8 @@
         <!-- Ed Dowie Event -->
         <div class="event" data-target-date="2024-03-09T19:30:00">
           <div class="container">
-            <a href="events/17December2022-EdDowie.html" alt="Ed Dowie Event" class="image" /> 
-              <img src="index/pictures/posters/EdDowie-13-.webp" alt="Ed Dowie" class="image" />
+            <a href="events/17December2022-EdDowie.html" class="image"> 
+              <img src="index/pictures/posters/EdDowie-13-.webp" alt="Ed Dowie" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -235,8 +234,8 @@
         <!-- Phantom Isle Event -->
         <div class="event" data-target-date="2024-11-22T19:30:00">
           <div class="container">
-            <a href="events/4November22-PhantomIsle.html" alt="Phantom Isle Event" class="image" /> 
-              <img src="index/pictures/posters/PhantomIsle-12-.webp" alt="Phantom Isle" class="image" />
+            <a href="events/4November22-PhantomIsle.html" class="image"> 
+              <img src="index/pictures/posters/PhantomIsle-12-.webp" alt="Phantom Isle" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -250,8 +249,8 @@
         <!-- Girls in Synthesis Event-->
         <div class="event" data-target-date="2024-10-13T19:00:00">
           <div class="container">
-            <a href="events/13October22-GirlsInSynthesis.html" alt="Girls In Synthesis" class="image" /> 
-              <img src="index/pictures/posters/GirlsInSynthesis-11-.webp" alt="Girls In Synthesis" class="image" />
+            <a href="events/13October22-GirlsInSynthesis.html" class="image"> 
+              <img src="index/pictures/posters/GirlsInSynthesis-11-.webp" alt="Girls In Synthesis" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -265,8 +264,8 @@
         <!-- Truax Event -->
         <div class="event" data-target-date="2024-10-13T19:00:00">
           <div class="container">
-            <a href="events/22April22-ThomasTruax.html" alt="Thomas Truax" class="image" /> 
-              <img src="index/pictures/posters/Truax-10-.webp" alt="Thomas Truax" class="image" />
+            <a href="events/22April22-ThomasTruax.html" class="image"> 
+              <img src="index/pictures/posters/Truax-10-.webp" alt="Thomas Truax" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -279,8 +278,8 @@
         <!-- End of Sarpa Salpa Event  -->
         <div class="event" data-target-date="2024-10-13T19:00:00">
           <div class="container">
-            <a href="events/8April22-SarpaSalpa.html" alt="Sarpa Salpa" class="image" /> 
-              <img src="index/pictures/posters/SarpaSalpa-9-.webp" alt="Sarpa Salpa" class="image" />
+            <a href="events/8April22-SarpaSalpa.html" class="image"> 
+              <img src="index/pictures/posters/SarpaSalpa-9-.webp" alt="Sarpa Salpa" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -293,8 +292,8 @@
         <!-- Ed Dowie Event -->
         <div class="event" data-target-date="2024-10-13T19:00:00">
           <div class="container">
-            <a href="events/4March22-EdDowie.html" alt="Sarpa Salpa" class="image" /> 
-              <img src="index/pictures/posters/EdDowie-8-.webp" alt="Ed Dowie" class="image" />
+            <a href="events/4March22-EdDowie.html" class="image"> 
+              <img src="index/pictures/posters/EdDowie-8-.webp" alt="Ed Dowie" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -308,8 +307,8 @@
         <!-- Girls In Synthesis Event-->
         <div class="event" data-target-date="2024-10-13T19:00:00">
           <div class="container">
-            <a href="events/12November21-GirlsInSynthesis.html" alt="Girls In Synthesis" class="image" /> 
-              <img src="index/pictures/posters/GirlsInSynthesis-7-.webp" alt="Girls In Synthesis" class="image" />
+            <a href="events/12November21-GirlsInSynthesis.html" class="image"> 
+              <img src="index/pictures/posters/GirlsInSynthesis-7-.webp" alt="Girls In Synthesis" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -322,8 +321,8 @@
         <!-- Girls In Zeropolis Event -->
         <div class="event" data-target-date="2024-10-13T19:00:00">
           <div class="container">
-            <a href="events/31July21-Zeropolis.html" alt="Zeropolis" class="image" /> 
-              <img src="index/pictures/posters/zeropolis-6-.webp" alt="Zeropolis" class="image" />
+            <a href="events/31July21-Zeropolis.html" class="image"> 
+              <img src="index/pictures/posters/zeropolis-6-.webp" alt="Zeropolis" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -337,8 +336,8 @@
         <!-- Working Mens Club Event -->
         <div class="event" data-target-date="2024-10-13T19:00:00">
           <div class="container">
-            <a href="events/11Febuary20-WorkingMensClub.html" alt="Working Mens Club" class="image" /> 
-              <img src="index/pictures/posters/WorkingMensClub-5-.webp" alt="Working Mens Club" class="image" />
+            <a href="events/11Febuary20-WorkingMensClub.html" class="image"> 
+              <img src="index/pictures/posters/WorkingMensClub-5-.webp" alt="Working Mens Club" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -351,8 +350,8 @@
         <!-- Ed Dowie Event -->
         <div class="event" data-target-date="2019-04-19T19:30:00">
           <div class="container">
-            <a href="events/4October19-EdDowie.html" alt="Ed Dowie" class="image" /> 
-              <img src="index/pictures/posters/EdDowie-4-.webp" alt="Ed Dowie" class="image" />
+            <a href="events/4October19-EdDowie.html" class="image"> 
+              <img src="index/pictures/posters/EdDowie-4-.webp" alt="Ed Dowie" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -365,8 +364,8 @@
         <!-- Damn Teeth Event -->
         <div class="event" data-target-date="2019-04-19T19:30:00">
           <div class="container">
-            <a href="events/21July19-DamnTeeth.html" alt="Damn Teeth" class="image" /> 
-              <img src="index/pictures/posters/DamnTeeth-3-.webp" alt="Damn Teeth" class="image" />
+            <a href="events/21July19-DamnTeeth.html" class="image"> 
+              <img src="index/pictures/posters/DamnTeeth-3-.webp" alt="Damn Teeth" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -380,8 +379,8 @@
         <!-- Truax Event -->
         <div class="event" data-target-date="2019-05-19T19:30:00">
           <div class="container">
-            <a href="events/17May19-ThomasTruax.html" alt="Thomas Truax" class="image" /> 
-              <img src="index/pictures/posters/Truax-2-.webp" alt="Thomas Truax" class="image" />
+            <a href="events/17May19-ThomasTruax.html" class="image"> 
+              <img src="index/pictures/posters/Truax-2-.webp" alt="Thomas Truax" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -395,8 +394,8 @@
         <!-- Girls In Synthesis Event -->
         <div class="event" data-target-date="2019-05-19T19:30:00">
           <div class="container">
-            <a href="events/12April19-GirlsInSynthesis.html" alt="Girls In Synthesis" class="image" /> 
-              <img src="index/pictures/posters/GirlsInSynthesis-1-.webp" alt="Girls In Synthesis" class="image" />
+            <a href="events/12April19-GirlsInSynthesis.html" class="image"> 
+              <img src="index/pictures/posters/GirlsInSynthesis-1-.webp" alt="Girls In Synthesis" class="image" loading="lazy" decoding="async" />
             </a>  
           </div>
           <div class="event-caption">
@@ -406,30 +405,29 @@
           </div>
         </div>
         <!-- End of Girls In Synthesis Event -->
-      </div>
-      <div class="scroll-container">
-        <div class="arrow right-arrow">
-          <img src="index/pictures/icons/ChevronWhite-Right.png" alt="Scroll Right" />
         </div>
+        <div class="arrow right-arrow" aria-hidden="true">
+          <img src="index/pictures/icons/ChevronWhite-Right.png" alt="" width="25" height="25" />
+        </div>
+      </div>
     </section>
-    
-    <img src="index/pictures/svg/layered-waves-bottom.svg" alt="Bottom Decorative Wave" style="width: 100%; height: auto; max-height: 70px" />
-    
+
+    <img src="index/pictures/svg/layered-waves-bottom.svg" alt="" role="presentation" width="1920" height="70" style="width:100%; height:auto; max-height:70px; display:block;" />
+
     <section id="vinyls">
       <h2 class="vinyl-title">Vinyl Releases</h2>
       <div class="scroll-container">
-        <div class="arrow left-arrow">
-          <img src="index/pictures/icons/ChevronWhite.png" alt="Scroll Left" />
+        <div class="arrow left-arrow" aria-hidden="true">
+          <img src="index/pictures/icons/ChevronWhite.png" alt="" width="25" height="25" />
         </div>
-
-      <div class="vinyl-cards">
+        <div class="vinyl-cards">
         <!-- ... Insert new event code below ... -->
 
       <!-- Click-er Compilation vinyl with Hover Effect -->
         <div class="vinyl">
           <a href="vinyls/ELE011.html" class="vinyl-link">
           <div class="container">
-            <img src="index/pictures/vinyl/Click-erLP3.webp" alt="Click-er - Compilation LP" class="image" />
+            <img src="index/pictures/vinyl/Click-erLP3.webp" alt="Click-er - Compilation LP" class="image" loading="lazy" decoding="async" />
           </div>
           </a>
           <div class="vinyl-caption">
@@ -442,7 +440,7 @@
         <div class="vinyl">
           <a href="vinyls/slipmat.html" class="vinyl-link">
           <div class="container">
-            <img src="index/pictures/items/Slipmatv4.webp" alt="The Barratts - Holding Up the Queue" class="image" />
+            <img src="index/pictures/items/Slipmatv4.webp" alt="The Barratts - Holding Up the Queue" class="image" loading="lazy" decoding="async" />
           </div>
           </a>
           <div class="vinyl-caption">
@@ -455,7 +453,7 @@
         <div class="vinyl">
           <a href="vinyls/ELE010.html" class="vinyl-link">
           <div class="container">
-            <img src="index/pictures/vinyl/BBLP.webp" alt="The Barratts - Holding Up the Queue" class="image" />
+            <img src="index/pictures/vinyl/BBLP.webp" alt="The Barratts - Holding Up the Queue" class="image" loading="lazy" decoding="async" />
           </div>
           </a>
           <div class="vinyl-caption">
@@ -468,7 +466,7 @@
         <div class="vinyl">
           <a href="vinyls/ELE009.html" class="vinyl-link">
           <div class="container">
-            <img src="index/pictures/vinyl/BarrattsLP.webp" alt="The Barratts Vinyl" class="image" />
+            <img src="index/pictures/vinyl/BarrattsLP.webp" alt="The Barratts Vinyl" class="image" loading="lazy" decoding="async" />
           </div>
           </a>
           <div class="vinyl-caption">
@@ -481,7 +479,7 @@
         <div class="vinyl">
           <a href="vinyls/ELE008.html" class="vinyl-link">
           <div class="container">
-            <img src="index/pictures/vinyl/LowGirlVinyl.webp" alt="Low Girl Vinyl" class="image" />
+            <img src="index/pictures/vinyl/LowGirlVinyl.webp" alt="Low Girl Vinyl" class="image" loading="lazy" decoding="async" />
           </div>
           </a>
           <div class="vinyl-caption">
@@ -494,7 +492,7 @@
         <div class="vinyl">
           <a href="vinyls/ELE007.html" class="vinyl-link">
           <div class="container">
-            <img src="index/pictures/vinyl/RollingThunderSideA.webp" alt="Rolling Thunder Vinyl" class="image" />
+            <img src="index/pictures/vinyl/RollingThunderSideA.webp" alt="Rolling Thunder Vinyl" class="image" loading="lazy" decoding="async" />
           </div>
           </a>
           <div class="vinyl-caption">
@@ -507,7 +505,7 @@
         <div class="vinyl">
           <a href="vinyls/ELE006.html" class="vinyl-link">
           <div class="container">
-            <img src="index/pictures/vinyl/BloodyBath.webp" alt="Bloody Bath Vinyl" class="image" />
+            <img src="index/pictures/vinyl/BloodyBath.webp" alt="Bloody Bath Vinyl" class="image" loading="lazy" decoding="async" />
           </div>
           </a>
           <div class="vinyl-caption">
@@ -520,7 +518,7 @@
         <div class="vinyl">
           <a href="vinyls/ELE005.html" class="vinyl-link">
           <div class="container">
-            <img src="index/pictures/vinyl/PhantomIsleSideA.webp" alt="Phantom Isle vinyl" class="image" />
+            <img src="index/pictures/vinyl/PhantomIsleSideA.webp" alt="Phantom Isle vinyl" class="image" loading="lazy" decoding="async" />
           </div>
           </a>
           <div class="vinyl-caption">
@@ -533,7 +531,7 @@
         <div class="vinyl">
           <a href="vinyls/ELE004.html" class="vinyl-link">
           <div class="container">
-            <img src="index/pictures/vinyl/Megalashhh.webp" alt="Megalashhh Vinyl" class="image" />
+            <img src="index/pictures/vinyl/Megalashhh.webp" alt="Megalashhh Vinyl" class="image" loading="lazy" decoding="async" />
           </div>
           </a>
           <div class="vinyl-caption">
@@ -546,7 +544,7 @@
         <div class="vinyl">
           <a href="vinyls/ELE003.html" class="vinyl-link">
           <div class="container">
-            <img src="index/pictures/vinyl/SarpaSalpaSideA.webp" alt="SarpaSalpa Vinyl" class="image" />
+            <img src="index/pictures/vinyl/SarpaSalpaSideA.webp" alt="SarpaSalpa Vinyl" class="image" loading="lazy" decoding="async" />
           </div>
           </a>
           <div class="vinyl-caption">
@@ -559,7 +557,7 @@
         <div class="vinyl">
           <a href="vinyls/ELE002.html" class="vinyl-link">
           <div class="container">
-            <img src="index/pictures/vinyl/RollingThunderVinylSideAFront.webp" alt="Rolling Thunder Vinyl" class="image" />
+            <img src="index/pictures/vinyl/RollingThunderVinylSideAFront.webp" alt="Rolling Thunder Vinyl" class="image" loading="lazy" decoding="async" />
           </div>
           </a>
           <div class="vinyl-caption">
@@ -572,7 +570,7 @@
         <div class="vinyl">
           <a href="vinyls/ELE001.html" class="vinyl-link">
           <div class="container">
-            <img src="index/pictures/vinyl/BabyLungSideA.webp" alt="Baby Lung Vinyl" class="image" />
+            <img src="index/pictures/vinyl/BabyLungSideA.webp" alt="Baby Lung Vinyl" class="image" loading="lazy" decoding="async" />
           </div>
           </a>
           <div class="vinyl-caption">
@@ -581,12 +579,13 @@
         </div>
         <!-- End of Baby Lung Vinyl -->
         
-      </div>
-      <div class="arrow right-arrow">
-        <img src="index/pictures/icons/ChevronWhite-Right.png" alt="Scroll Right" />
+        </div>
+        <div class="arrow right-arrow" aria-hidden="true">
+          <img src="index/pictures/icons/ChevronWhite-Right.png" alt="" width="25" height="25" />
+        </div>
       </div>
     </section>
-  </main> 
+  </main>
 
   <footer>
     <div class="footer-content">
@@ -617,8 +616,7 @@
                   class="required email"
                   id="mce-EMAIL"
                   required
-                  value=""
-                />
+                  value="" placeholder="your@email.com" />
                 <button
                   type="submit"
                   name="subscribe"
@@ -651,14 +649,14 @@
       <div class="social-media-icons mobile">
         <a
           href="https://www.instagram.com/eightlimbentertainment"
-          target="_blank"
+          target="_blank" rel="noopener"
           aria-label="Instagram"
         >
           <img src="index/pictures/icons/instagram.webp" alt="Instagram" />
         </a>
         <a
           href="https://www.facebook.com/8Limbent/"
-          target="_blank"
+          target="_blank" rel="noopener"
           aria-label="Facebook"
         >
           <img src="index/pictures/icons/facebook.webp" alt="Facebook" />
@@ -672,11 +670,10 @@
   </footer>
 
   <!-- JavaScript -->
-  <script src="index/js/horizontalScroll.js"></script>
-  <script src="index/js/hoverEffect.js"></script>
-  <script src="index/js/countdownTimer.js"></script>
-  <script src="index/js/emailValidation.js"></script>
-  <script src="index/js/longtracklist.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.0/lazysizes.min.js" async></script>
+  <script src="index/js/horizontalScroll.js" defer></script>
+  <script src="index/js/hoverEffect.js" defer></script>
+  <script src="index/js/countdownTimer.js" defer></script>
+  <script src="index/js/emailValidation.js" defer></script>
+  <script src="index/js/longTrackList.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,376 @@
+/* =============================================================
+   Eight Limb Entertainment — shared styles
+   Used by: index.html, 404.html, events/*.html, vinyls/*.html
+   Page-specific rules live in styles.css / events.css / vinyl.css
+   ============================================================= */
+
+/* DESIGN TOKENS — light mode (default) */
+:root {
+  --bg: #ffffff;
+  --fg: #000000;
+  --muted-fg: #555;
+  --header-bg: #ffffff;
+  --footer-bg: #ffffff;
+  --footer-fg: #000000;
+  --footer-muted-fg: #555;
+  --band-bg: #000000;       /* the black events band — stays black in both modes */
+  --band-fg: #ffffff;
+  --accent: #333333;
+  --accent-hover: #555555;
+  --input-bg: #ffffff;
+  --input-fg: #000000;
+  --input-border: #ccc;
+  --shadow-strong: rgba(0, 0, 0, 0.5);
+  --shadow-soft: rgba(0, 0, 0, 0.3);
+
+  /* layout */
+  --header-h: clamp(64px, 10vh, 150px);
+  --wave-h: clamp(48px, 8vh, 70px);
+  --card-img-h: clamp(180px, 25vh, 300px);
+  --vinyl-img-h: clamp(160px, 20vh, 250px);
+}
+
+/* AUTO DARK — flip a small set of tokens when the OS prefers dark.
+   The black band stays black; events pages are already dark and unaffected. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e0e0e;
+    --fg: #f2f2f2;
+    --muted-fg: #b8b8b8;
+    --header-bg: #0e0e0e;
+    --footer-bg: #0e0e0e;
+    --footer-fg: #f2f2f2;
+    --footer-muted-fg: #b8b8b8;
+    --accent: #f2f2f2;
+    --accent-hover: #cfcfcf;
+    --input-bg: #1a1a1a;
+    --input-fg: #f2f2f2;
+    --input-border: #444;
+  }
+}
+
+/* RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sticky footer — body fills viewport, footer pinned to bottom when content is short.
+   Pages whose body is black (events, vinyls, 404) never show a stripe below the footer. */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > footer {
+  margin-top: auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+/* Keyboard focus — visible only for keyboard users, not mouse clicks */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  background: var(--header-bg);
+  height: var(--header-h);
+  position: relative;
+}
+
+.logo {
+  height: var(--header-h);
+  max-height: 150px;
+  padding-top: 8px;
+  width: auto;
+}
+
+/* SOCIAL ICONS — desktop top-right, mobile centered in footer */
+.social-media-icons {
+  gap: 3px;
+}
+
+.social-media-icons a {
+  text-decoration: none;
+}
+
+.social-media-icons img {
+  width: auto;
+  height: clamp(28px, 4.2vh, 40px);
+}
+
+.social-media-icons.desktop {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 3px;
+}
+
+.social-media-icons.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .social-media-icons.desktop {
+    display: none;
+  }
+  .social-media-icons.mobile {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 3px;
+    padding: 5px 0;
+  }
+}
+
+/* WAVE DECORATIONS */
+.top-header-wave {
+  width: 100%;
+  height: var(--wave-h);
+  display: block;
+  background-color: var(--bg);
+  position: relative;
+  z-index: 1;
+}
+
+.wave-decoration {
+  width: 100%;
+  height: 30px;
+  display: block;
+}
+
+.wave-decoration.top-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.wave-decoration.bottom-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* SCROLL-SNAP CARD ROWS (events + vinyls on the homepage) */
+.event-cards,
+.vinyl-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 25px;
+  position: relative;
+  z-index: 1;
+}
+
+.event-cards::-webkit-scrollbar,
+.vinyl-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.event,
+.vinyl {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  margin: 0 5px;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-fg);
+  padding: 20px;
+  padding-top: 0;
+  padding-bottom: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1px;
+  font-weight: 700;
+}
+
+.footer-content p {
+  font-size: 0.875rem;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  font-weight: 200;
+  color: var(--footer-muted-fg);
+}
+
+/* MAILCHIMP SIGNUP */
+#mc_embed_signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#mc_embed_signup_scroll {
+  display: inline-block;
+}
+
+#mc_embed_signup .mc-field-group,
+#mc-embedded-subscribe-form .mc-field-group {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  position: relative;
+  width: auto;
+}
+
+#mc_embed_signup .email,
+#mc-embedded-subscribe-form .email {
+  padding: 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 20px;
+  width: 250px;
+  background: var(--input-bg);
+  color: var(--input-fg);
+  flex-shrink: 0;
+}
+
+#mc-embedded-subscribe-form .button,
+#mc_embed_signup .button {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: auto;
+}
+
+#mc-embedded-subscribe-form .button:hover,
+#mc_embed_signup .button:hover {
+  background-color: var(--accent-hover);
+}
+
+#mc-embedded-subscribe-form .button img,
+#mc_embed_signup .button img {
+  display: block;
+  max-width: 100%;
+  max-height: 10px;
+  height: auto;
+}
+
+#mce-error-response,
+#mce-success-response {
+  padding: 10px 0;
+  width: 250px;
+  margin: 0 auto;
+}
+
+#mce-error-response { color: #d33; }
+#mce-success-response { color: green; }
+
+.invisible-button {
+  visibility: hidden;
+  width: 40px;
+}
+
+.valid-email   { background-color: lightgreen; }
+.invalid-email { background-color: palevioletred; }
+
+@media screen and (max-width: 768px) {
+  #mc-embedded-subscribe-form .mc-field-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  #mc-embedded-subscribe-form .email {
+    flex: 1;
+    max-width: calc(100% - 58px);
+  }
+  #mc-embedded-subscribe-form .button {
+    max-width: 48px;
+    background-color: var(--accent);
+  }
+}
+
+/* SHARED ARROW (events + vinyls horizontal scroll) */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  padding: 5px;
+}
+
+.arrow img {
+  width: 25px;
+  height: auto;
+  display: block;
+}
+
+.left-arrow  { left: 10px; }
+.right-arrow { right: 10px; }
+
+@media screen and (max-width: 768px) {
+  .arrow { display: none !important; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

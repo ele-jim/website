@@ -39,7 +39,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../index/pictures/favicon/apple-touch-icon.png">
   
   <!-- Theme Color -->
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#000000">
   
   <!-- Schema.org Structured Data for SEO -->
   <script type="application/ld+json">
@@ -58,7 +58,11 @@
   </script>
 
   <!-- Fonts and Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="../index/pictures/icons/ELE_Logo.webp">
+  <link rel="stylesheet" href="../index/shared.css" />
   <link rel="stylesheet" href="../events/events-assets/events.css" />
 
   <!-- Custom CSS to Hide Elements -->
@@ -73,24 +77,24 @@
 <body>
   <header>
       <a href="/index.html" aria-label="Logo">
-        <img data-src="../index/pictures/icons/ELE_Logo.webp" class="logo lazyload" alt="Eight Limb Entertainment Logo" />
+        <img src="../index/pictures/icons/ELE_Logo.webp" class="logo" alt="Eight Limb Entertainment Logo" width="150" height="150" decoding="async" />
       </a>
     <div class="social-media-icons desktop">
-      <a href="https://www.instagram.com/eightlimbentertainment" target="_blank" aria-label="Instagram">
-        <img data-src="../index/pictures/icons/instagram.webp" class="lazyload" alt="Instagram" />
+      <a href="https://www.instagram.com/eightlimbentertainment" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="../index/pictures/icons/instagram.webp" alt="Instagram" width="40" height="40" loading="lazy" decoding="async" />
       </a>
-      <a href="https://www.facebook.com/8Limbent/" target="_blank" aria-label="Facebook">
-        <img data-src="../index/pictures/icons/facebook.webp" class="lazyload" alt="Facebook" />
+      <a href="https://www.facebook.com/8Limbent/" target="_blank" rel="noopener" aria-label="Facebook">
+        <img src="../index/pictures/icons/facebook.webp" alt="Facebook" width="40" height="40" loading="lazy" decoding="async" />
       </a>
       <a href="mailto:8limbent@gmail.com" aria-label="Email">
-        <img data-src="../index/pictures/icons/email.webp" class="lazyload" alt="Email" />
+        <img src="../index/pictures/icons/email.webp" alt="Email" width="40" height="40" loading="lazy" decoding="async" />
       </a>
     </div>
   </header>
 
   <section class="event-container">
     <div class="event-image">
-      <img src="../index/pictures/posters/GirlsInSynthesis-1-.webp" class="clickable-event-image" alt="Girls In Synthesis Poster">
+      <img src="../index/pictures/posters/GirlsInSynthesis-1-.webp" class="clickable-event-image" alt="Girls In Synthesis Poster" decoding="async" fetchpriority="high">
     </div>
   </section> 
 
@@ -105,8 +109,8 @@
           <div class="countdown-timer"></div>
         </div>
         <div class="facebook-event">
-          <a href="https://www.facebook.com/events/745093942542680" target="_blank" aria-label="Facebook event for Ed Dowie">
-            <img data-src="../index/pictures/icons/facebook.webp" alt="Facebook Event" class="lazyload">
+          <a href="https://www.facebook.com/events/745093942542680" target="_blank" rel="noopener" aria-label="Facebook event for Ed Dowie">
+            <img src="../index/pictures/icons/facebook.webp" alt="Facebook Event" loading="lazy" decoding="async">
           </a>
         </div>
       </div>
@@ -174,8 +178,7 @@
                   class="required email"
                   id="mce-EMAIL"
                   required
-                  value=""
-                />
+                  value="" placeholder="your@email.com" />
                 <button
                   type="submit"
                   name="subscribe"
@@ -208,14 +211,14 @@
       <div class="social-media-icons mobile">
         <a
           href="https://www.instagram.com/eightlimbentertainment"
-          target="_blank"
+          target="_blank" rel="noopener"
           aria-label="Instagram"
         >
           <img src="../index/pictures/icons/instagram.webp" alt="Instagram" />
         </a>
         <a
           href="https://www.facebook.com/8Limbent/"
-          target="_blank"
+          target="_blank" rel="noopener"
           aria-label="Facebook"
         >
           <img src="../index/pictures/icons/facebook.webp" alt="Facebook" />
@@ -233,6 +236,5 @@
   <script src="../index/js/emailValidation.js"></script>
   <script src="../events/events-assets/js/gallery.js"></script>
   <script src="../events/events-assets/js/eventStatus.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.0/lazysizes.min.js" async></script>
 </body>
 </html>
