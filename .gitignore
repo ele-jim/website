@@ -2,3 +2,5 @@
 */.DS_Store
 .DS_Store
 sitemap.xml
+node_modules/
+package-lock.json

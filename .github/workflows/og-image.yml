@@ -1,0 +1,47 @@
+name: Regenerate OG image
+
+# Runs whenever the homepage changes (new event added) or the script itself
+# changes. Composites the logo + latest poster into og-image.png and commits.
+
+on:
+  push:
+    paths:
+      - 'index.html'
+      - 'index/pictures/posters/**'
+      - 'index/pictures/icons/ELE_Logo.webp'
+      - 'scripts/generate-og-image.mjs'
+      - '.github/workflows/og-image.yml'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # token needed so the commit we push back triggers no further runs of
+          # other workflows; default GITHUB_TOKEN is fine.
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install sharp
+        run: npm install --no-save sharp
+
+      - name: Generate og-image.png
+        run: node scripts/generate-og-image.mjs
+
+      - name: Commit if changed
+        run: |
+          git config --local user.name  "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index/pictures/og-image.png
+          if git diff --cached --quiet; then
+            echo "No change to og-image.png"
+            exit 0
+          fi
+          git commit -m "chore(og): regenerate og-image [skip ci]"
+          git push
